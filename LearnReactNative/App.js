@@ -7,10 +7,11 @@ const App = () => {
   const onPress = () => {
     setVisible(!visible);
   };
+
   return (
     <SafeAreaView>
       <Button title="토글" onPress={onPress} />
-      <Box rounded={true} size="large" color="blue" />
+      {visible && <Box rounded={true} size="large" color="blue" />}
     </SafeAreaView>
   );
 };
