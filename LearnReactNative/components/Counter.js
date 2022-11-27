@@ -1,14 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 
-function Counter() {
+function Counter({counter, onIncrease, onDecrease}) {
   return (
     <View style={styles.wrapper}>
       <View style={styles.numberArea}>
-        <Text style={styles.number}>0</Text>
+        <Text style={styles.number}>{counter}</Text>
       </View>
-      <Button title="+1" />
-      <Button title="-1" />
+      <Button title="+1" onPress={onIncrease} />
+      <Button title="-1" onPress={onDecrease} />
     </View>
   );
 }
