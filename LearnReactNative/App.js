@@ -3,9 +3,18 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 import Counter from './components/Counter';
 
 const App = () => {
+  const [counter, setCounter] = useState(0);
+
+  const onIncrease = () => setCounter(counter + 1);
+  const onDecrease = () => setCounter(counter - 1);
+
   return (
     <SafeAreaView style={styles.full}>
-      <Counter />
+      <Counter
+        counter={counter}
+        onIncrease={onIncrease}
+        onDecrease={onDecrease}
+      />
     </SafeAreaView>
   );
 };
