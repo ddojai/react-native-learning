@@ -4,13 +4,21 @@ import {View, StyleSheet} from 'react-native';
 function Box(props) {
   return (
     <View
-      style={[styles.box, props.rounded && styles.rounded, sizes[props.size]]}
+      style={[
+        styles.box,
+        props.rounded && styles.rounded,
+        sizes[props.size],
+        {
+          backgroundColor: props.color,
+        },
+      ]}
     />
   );
 }
 
 Box.defaultProps = {
   size: 'medium',
+  color: 'black',
 };
 
 const styles = StyleSheet.create({
