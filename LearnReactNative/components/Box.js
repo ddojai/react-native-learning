@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
-function Box() {
-  return <View style={[styles.box, styles.rounded]} />;
+function Box(props) {
+  return <View style={[styles.box, props.rounded && styles.rounded]} />;
 }
 
 const styles = StyleSheet.create({
