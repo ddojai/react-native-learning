@@ -4,11 +4,10 @@ import DateHead from './components/DateHead';
 
 function App() {
   const today = new Date();
-  console.log(today);
 
   return (
     <SafeAreaView>
-      <DateHead />
+      <DateHead date={today} />
     </SafeAreaView>
   );
 }
