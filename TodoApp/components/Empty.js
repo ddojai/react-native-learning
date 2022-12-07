@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet} from 'react-native';
 
 function Empty() {
   return (
     <View style={styles.block}>
+      <Image source={require('../assets/images/circle.png')} />
       <Text style={styles.description}>야호! 할일이 없습니다.</Text>
     </View>
   );
