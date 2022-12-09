@@ -6,7 +6,11 @@ function Empty() {
 
   return (
     <View style={styles.block}>
-      <Image source={source} style={styles.image} resizeMode="contain" />
+      <Image
+        source={require('../assets/images/young_and_happy.png')}
+        style={styles.image}
+        resizeMode="center"
+      />
       <Text style={styles.description}>야호! 할일이 없습니다.</Text>
     </View>
   );
@@ -19,9 +23,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    width: 250,
-    height: 250,
-    backgroundColor: 'gray',
+    width: 240,
+    height: 179,
+    marginBottom: 16,
   },
   description: {
     fontSize: 24,
