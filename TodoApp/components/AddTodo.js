@@ -12,6 +12,12 @@ import {
 function AddTodo() {
   const [text, setText] = useState('');
 
+  const button = (
+    <View style={styles.buttonStyle}>
+      <Image source={require('../assets/icons/add_white/add_white.png')} />
+    </View>
+  );
+
   return (
     <View style={styles.block}>
       <TextInput
@@ -20,25 +26,14 @@ function AddTodo() {
         value={text}
         onChangeText={setText}
       />
-      {Platform.OS === 'ios' ? (
-        <TouchableOpacity activeOpacity={0.5}>
-          <View style={styles.buttonStyle}>
-            <Image
-              source={require('../assets/icons/add_white/add_white.png')}
-            />
+      {Platform.select({
+        ios: <TouchableOpacity activeOpacity={0.5}>{button}</TouchableOpacity>,
+        android: (
+          <View style={styles.circleWrapper}>
+            <TouchableNativeFeedback>{button}</TouchableNativeFeedback>
           </View>
-        </TouchableOpacity>
-      ) : (
-        <View style={styles.circleWrapper}>
-          <TouchableNativeFeedback>
-            <View style={styles.buttonStyle}>
-              <Image
-                source={require('../assets/icons/add_white/add_white.png')}
-              />
-            </View>
-          </TouchableNativeFeedback>
-        </View>
-      )}
+        ),
+      })}
     </View>
   );
 }
