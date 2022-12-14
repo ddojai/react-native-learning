@@ -8,7 +8,6 @@ import TodoList from './components/TodoList';
 
 function App() {
   const today = new Date();
-
   const [todos, setTodos] = useState([
     {id: 1, text: '작업환경 설정', done: true},
     {id: 2, text: '리액트 네이티브 기초 공부', done: false},
@@ -30,6 +29,13 @@ function App() {
     setTodos(todos.concat(todo));
   };
 
+  const onToggle = id => {
+    const nextTodos = todos.map(todo =>
+      todo.id === id ? {...todo, done: !todo.done} : todo,
+    );
+    setTodos(nextTodos);
+  };
+
   return (
     <SafeAreaProvider>
       <SafeAreaView edges={['bottom']} style={styles.block}>
@@ -37,7 +43,11 @@ function App() {
           behavior={Platform.select({ios: 'padding'})}
           style={styles.avoid}>
           <DateHead date={today} />
-          {todos.length === 0 ? <Empty /> : <TodoList todos={todos} />}
+          {todos.length === 0 ? (
+            <Empty />
+          ) : (
+            <TodoList todos={todos} onToggle={onToggle} />
+          )}
           <AddTodo onInsert={onInsert} />
         </KeyboardAvoidingView>
       </SafeAreaView>
