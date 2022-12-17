@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, KeyboardAvoidingView, Platform} from 'react-native';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
-import AsyncStorage from '@react-native-community/async-storage';
 
 import DateHead from './components/DateHead';
 import AddTodo from './components/AddTodo';
 import Empty from './components/Empty';
 import TodoList from './components/TodoList';
+import todosStorage from './storage/todosStorage';
 
 function App() {
   const today = new Date();
@@ -19,28 +19,12 @@ function App() {
 
   // 불러오기
   useEffect(() => {
-    async function load() {
-      try {
-        const rawTodos = await AsyncStorage.getItem('todos');
-        const savedTodos = JSON.parse(rawTodos);
-        setTodos(savedTodos);
-      } catch (e) {
-        console.log('Failed to load todos');
-      }
-    }
-    load();
+    todosStorage.get().then(setTodos).catch(console.error);
   }, []);
 
   // 저장
   useEffect(() => {
-    async function save() {
-      try {
-        await AsyncStorage.setItem('todos', JSON.stringify(todos));
-      } catch (e) {
-        console.log('Failed to save todos');
-      }
-    }
-    save();
+    todosStorage.set(todos).catch(console.error);
   }, [todos]);
 
   const onInsert = text => {
