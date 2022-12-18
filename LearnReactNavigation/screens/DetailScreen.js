@@ -7,7 +7,7 @@ function DetailScreen({route, navigation}) {
       <Text style={styles.text}>id: {route.params.id}</Text>
       <Button
         title="다음"
-        onPress={() => navigation.push('Detail', {id: route.params.id + 1})}
+        onPress={() => navigation.navigate('Detail', {id: route.params.id + 1})}
       />
     </View>
   );
