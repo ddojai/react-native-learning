@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import DetailScreen from './screens/DetailScreen';
+import {View, Text, TouchableOpacity} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +15,6 @@ function App() {
           name="Home"
           component={HomeScreen}
           options={{
-            title: '홈',
             // Header 블록에 대한 스타일
             headerStyle: {
               backgroundColor: '#29b6f6',
@@ -31,9 +31,24 @@ function App() {
         <Stack.Screen
           name="Detail"
           component={DetailScreen}
-          options={({route}) => ({
-            title: `상세 정보 - ${route.params.id}`,
-          })}
+          options={{
+            headerBackVisible: false,
+            headerLeft: ({onPress}) => (
+              <TouchableOpacity onPress={onPress}>
+                <Text>Left</Text>
+              </TouchableOpacity>
+            ),
+            headerTitle: ({children}) => (
+              <View>
+                <Text>{children}</Text>
+              </View>
+            ),
+            headerRight: () => (
+              <View>
+                <Text>Right</Text>
+              </View>
+            ),
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
