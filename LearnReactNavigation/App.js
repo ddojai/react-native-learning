@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import DetailScreen from './screens/DetailScreen';
 import {View, Text, TouchableOpacity} from 'react-native';
+import HeaderlessScreen from './screens/HeaderlessScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -48,6 +49,13 @@ function App() {
                 <Text>Right</Text>
               </View>
             ),
+          }}
+        />
+        <Stack.Screen
+          name="Headerless"
+          component={HeaderlessScreen}
+          options={{
+            headerShown: false,
           }}
         />
       </Stack.Navigator>
