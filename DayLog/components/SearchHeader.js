@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Pressabe,
+  Pressable,
   StyleSheet,
   TextInput,
   useWindowDimensions,
@@ -17,10 +17,10 @@ function SearchHeader() {
         placeholder="검색어를 입력하세요"
         autoFocus
       />
-      <Pressabe
+      <Pressable
         style={({pressed}) => [styles.button, pressed && {opacity: 0.5}]}>
         <Icon name="cancel" size={20} color="#9e9e9e" />
-      </Pressabe>
+      </Pressable>
     </View>
   );
 }
