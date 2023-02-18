@@ -2,24 +2,23 @@ import React from 'react';
 import {Calendar} from 'react-native-calendars';
 import {StyleSheet} from 'react-native';
 
-function CalendarView() {
+function CalendarView({markedDates, selectedDate, onSelectDate}) {
   // 현재 연/월 사용하기
-  const markedDates = {
-    '2023-02-16': {
+  const markedSelectedDate = {
+    ...markedDates,
+    [selectedDate]: {
       selected: true,
-    },
-    '2023-02-17': {
-      marked: true,
-    },
-    '2023-02-18': {
-      marked: true,
+      marked: markedDates[selectedDate]?.marked,
     },
   };
 
   return (
     <Calendar
       style={styles.calendar}
-      markedDates={markedDates}
+      markedDates={markedSelectedDate}
+      onDayPress={day => {
+        onSelectDate(day.dateString);
+      }}
       theme={{
         selectedDayBackgroundColor: '#009688',
         arrowColor: '#009688',
