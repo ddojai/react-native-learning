@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import CustomButton from '../android/CustomButton';
+import CustomButton from '../components/CustomButton';
 import BorderedInput from '../components/BorderedInput';
 
 function SignInScreen() {
@@ -13,7 +13,7 @@ function SignInScreen() {
         <BorderedInput placeholder="비밀번호" />
         <View style={styles.buttons}>
           <CustomButton title="로그인" hasMarginBottom />
-          <CustomButton title="회원가입" />
+          <CustomButton title="회원가입" theme="secondary" />
         </View>
       </View>
     </SafeAreaView>
