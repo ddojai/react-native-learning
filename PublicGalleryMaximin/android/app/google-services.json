@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "587699009304",
+    "project_id": "public-gallery-85cba",
+    "storage_bucket": "public-gallery-85cba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587699009304:android:33237fc3c0efe4a8a6d06d",
+        "android_client_info": {
+          "package_name": "com.publicgallerymaximin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587699009304-230g28gsbr0jq0g6uav70uua52laj2at.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.publicgallerymaximin",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "587699009304-u1f94sjkfbh6eeigcemich8n44ss9m0u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC59xN3OUMDQ7Y0lJMmLr-ipxLYyIjHQOk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587699009304-u1f94sjkfbh6eeigcemich8n44ss9m0u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
