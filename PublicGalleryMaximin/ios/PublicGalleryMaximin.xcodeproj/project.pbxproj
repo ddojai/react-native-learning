@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		7B6C41B929A2705600F769B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B6C41B829A2705600F769B9 /* GoogleService-Info.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		93566AF5F81B27213EB35087 /* Pods_PublicGalleryMaximin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35FF44040B324253BA24DCD2 /* Pods_PublicGalleryMaximin.framework */; };
 		E087F9618A8232C789EED338 /* Pods_PublicGalleryMaximin_PublicGalleryMaximinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2FCD4D5257D2B04F09EBC9 /* Pods_PublicGalleryMaximin_PublicGalleryMaximinTests.framework */; };
@@ -40,6 +41,7 @@
 		3B4392A12AC88292D35C810B /* Pods-PublicGalleryMaximin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PublicGalleryMaximin.debug.xcconfig"; path = "Target Support Files/Pods-PublicGalleryMaximin/Pods-PublicGalleryMaximin.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-PublicGalleryMaximin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PublicGalleryMaximin.release.xcconfig"; path = "Target Support Files/Pods-PublicGalleryMaximin/Pods-PublicGalleryMaximin.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-PublicGalleryMaximin-PublicGalleryMaximinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PublicGalleryMaximin-PublicGalleryMaximinTests.debug.xcconfig"; path = "Target Support Files/Pods-PublicGalleryMaximin-PublicGalleryMaximinTests/Pods-PublicGalleryMaximin-PublicGalleryMaximinTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B6C41B829A2705600F769B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = PublicGalleryMaximin/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-PublicGalleryMaximin-PublicGalleryMaximinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PublicGalleryMaximin-PublicGalleryMaximinTests.release.xcconfig"; path = "Target Support Files/Pods-PublicGalleryMaximin-PublicGalleryMaximinTests/Pods-PublicGalleryMaximin-PublicGalleryMaximinTests.release.xcconfig"; sourceTree = "<group>"; };
 		BA2FCD4D5257D2B04F09EBC9 /* Pods_PublicGalleryMaximin_PublicGalleryMaximinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PublicGalleryMaximin_PublicGalleryMaximinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				7B6C41B829A2705600F769B9 /* GoogleService-Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -159,7 +162,6 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
 				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -182,7 +184,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
 				C7907BBD5CFAA60F8ED74B33 /* [CP-User] [RNFB] Core Configuration */,
 			);
@@ -245,6 +246,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				7B6C41B929A2705600F769B9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,23 +266,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
-		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PublicGalleryMaximin/Pods-PublicGalleryMaximin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PublicGalleryMaximin/Pods-PublicGalleryMaximin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PublicGalleryMaximin/Pods-PublicGalleryMaximin-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -324,23 +309,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PublicGalleryMaximin-PublicGalleryMaximinTests/Pods-PublicGalleryMaximin-PublicGalleryMaximinTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PublicGalleryMaximin-PublicGalleryMaximinTests/Pods-PublicGalleryMaximin-PublicGalleryMaximinTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PublicGalleryMaximin-PublicGalleryMaximinTests/Pods-PublicGalleryMaximin-PublicGalleryMaximinTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C7907BBD5CFAA60F8ED74B33 /* [CP-User] [RNFB] Core Configuration */ = {
@@ -509,7 +477,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.maximin.PublicGallery;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.PublicGallery;
 				PRODUCT_NAME = PublicGalleryMaximin;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -534,7 +502,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.maximin.PublicGallery;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.PublicGallery;
 				PRODUCT_NAME = PublicGalleryMaximin;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

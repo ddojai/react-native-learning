@@ -1,5 +1,5 @@
-#import <Firebase.h>
 #import "AppDelegate.h"
+#import <Firebase.h>
 
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
@@ -29,10 +29,10 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-  if ([FIRApp defaultApp] == nil) {
-    [FIRApp configure];
-  }
+{  
+  // Add me --- \/
+  [FIRApp configure];
+  // Add me --- /\
 
   RCTAppSetupPrepareApp(application);
 
