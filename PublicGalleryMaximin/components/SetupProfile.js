@@ -1,16 +1,18 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { Image, Pressable, StyleSheet, View, Platform } from "react-native";
 import { signOut } from "../lib/auth";
 import { createUser } from "../lib/users";
 import BorderedInput from "./BorderedInput";
 import CustomButton from "./CustomButton";
 import { useUserContext } from "../contexts/UserContext";
+import { launchImageLibrary } from "react-native-image-picker";
 
 function SetupProfile() {
   const [displayName, setDisplayName] = useState('');
   const navigation = useNavigation();
   const { setUser } = useUserContext();
+  const [response, setResponse] = useState(null);
 
   const { params } = useRoute();
   const { uid } = params || {};
@@ -28,10 +30,32 @@ function SetupProfile() {
     signOut();
     navigation.goBack();
   };
+  const onSelectImage = () => {
+    launchImageLibrary(
+      {
+        mediaType: 'photo',
+        maxWidth: 512,
+        maxHeight: 512,
+        includeBase64: Platform.OS === 'android',
+      },
+      (res) => {
+        console.log(res);
+        if (res.didCancel) {
+          // 취소했을 경우
+          return;
+        }
+        setResponse(res);
+      },
+    );
+  };
 
   return (
     <View style={styles.block}>
-      <View style={styles.circle} />
+      <Pressable onPress={onSelectImage} >
+        <Image
+          style={styles.circle}
+          source={{ uri: response?.assets[0]?.uri }} />
+      </Pressable>
       <View style={styles.form}>
         <BorderedInput
           placeholder="닉네임"
