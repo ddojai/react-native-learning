@@ -1,5 +1,4 @@
-import {useRoute} from '@react-navigation/native';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState, useCallback} from 'react';
 import {
   StyleSheet,
   TextInput,
@@ -8,6 +7,8 @@ import {
   Keyboard,
   useWindowDimensions,
 } from 'react-native';
+import {useNavigation, useRoute} from '@react-navigation/native';
+import IconRightButton from '../components/IconRightButton';
 
 function UploadScreen() {
   const route = useRoute();
@@ -16,6 +17,10 @@ function UploadScreen() {
   const animation = useRef(new Animated.Value(width)).current;
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
   const [description, setDescription] = useState('');
+  const navigation = useNavigation();
+  const onSubmit = useCallback(() => {
+    // TODO: 포스트 작성 로직 구현
+  }, []);
 
   useEffect(() => {
     const didShow = Keyboard.addListener('keyboardDidShow', () =>
@@ -39,6 +44,12 @@ function UploadScreen() {
       delay: 100,
     }).start();
   }, [isKeyboardOpen, width, animation]);
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => <IconRightButton onPress={onSubmit} name="send" />,
+    });
+  }, [navigation, onSubmit]);
 
   return (
     <View style={styles.block}>
