@@ -84,11 +84,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     marginBottom: 8,
-    date: {
-      color: '#757575',
-      fontSize: 12,
-      lineHeight: 18,
-    },
+  },
+  date: {
+    color: '#757575',
+    fontSize: 12,
+    lineHeight: 18,
   },
 });
 
