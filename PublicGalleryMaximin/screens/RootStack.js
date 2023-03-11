@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React, {useEffect} from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SignInScreen from './SignInScreen';
 import WelcomeScreen from './WelcomeScreen';
-import { useUserContext } from '../contexts/UserContext';
+import {useUserContext} from '../contexts/UserContext';
 import MainTab from './MainTab';
-import { getUser } from '../lib/users';
-import { subscribeAuth } from '../lib/auth';
+import {getUser} from '../lib/users';
+import {subscribeAuth} from '../lib/auth';
 
 const Stack = createNativeStackNavigator();
 
 function RootStack() {
-  const { user, setUser } = useUserContext();
+  const {user, setUser} = useUserContext();
 
   useEffect(() => {
     // 컴포넌트 첫 로딩 시 로그인 상태를 확인하고 UserContext에 적용
@@ -36,7 +36,7 @@ function RootStack() {
           <Stack.Screen
             name="MainTab"
             component={MainTab}
-            options={{ headerShown: false }}
+            options={{headerShown: false}}
           />
         </>
       ) : (
@@ -44,12 +44,12 @@ function RootStack() {
           <Stack.Screen
             name="SignIn"
             component={SignInScreen}
-            options={{ headerShown: false }}
+            options={{headerShown: false}}
           />
           <Stack.Screen
             name="Welcome"
             component={WelcomeScreen}
-            options={{ headerShown: false }}
+            options={{headerShown: false}}
           />
         </>
       )}
