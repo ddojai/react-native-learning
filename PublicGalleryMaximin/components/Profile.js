@@ -3,13 +3,13 @@ import {useState} from 'react';
 import {
   ActivityIndicator,
   FlatList,
-  Image,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 import {getPosts} from '../lib/posts';
 import {getUser} from '../lib/users';
+import Avatar from './Avatar';
 
 function Profile({userId}) {
   const [user, setUser] = useState(null);
@@ -31,17 +31,7 @@ function Profile({userId}) {
       style={styles.block}
       ListHeaderComponent={
         <View style={styles.userInfo}>
-          <Image
-            source={
-              user.photoURL
-                ? {
-                    uri: user.photoURL,
-                  }
-                : require('../assets/user.png')
-            }
-            resizeMode="cover"
-            style={styles.avatar}
-          />
+          <Avatar source={user.photoURL && {uri: user.photoURL}} size={128} />
           <Text style={styles.username}>{user.displayName}</Text>
         </View>
       }
@@ -61,11 +51,6 @@ const styles = StyleSheet.create({
     paddingTop: 80,
     paddingBottom: 64,
     alignItems: 'center',
-  },
-  avatar: {
-    width: 128,
-    height: 128,
-    borderRadius: 64,
   },
   username: {
     marginTop: 8,
