@@ -10,3 +10,13 @@ export function createPost({user, photoURL, description}) {
     createdAt: firestore.FieldValue.serverTimestamp(),
   });
 }
+
+export async function getPosts() {
+  const snapshop = await postsCollection.get();
+  const posts = snapshop.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+
+  return posts;
+}
