@@ -26,3 +26,19 @@ export async function getPosts() {
 
   return posts;
 }
+
+export async function getOlderPosts(id) {
+  const cursorDoc = await postsCollection.doc(id).get();
+  const snapshop = await postsCollection
+    .orderBy('createdAt', 'desc')
+    .startAfter(cursorDoc)
+    .limit(PAGE_SIZE)
+    .get();
+
+  const posts = snapshop.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+
+  return posts;
+}
