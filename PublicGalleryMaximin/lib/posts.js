@@ -11,8 +11,14 @@ export function createPost({user, photoURL, description}) {
   });
 }
 
+export const PAGE_SIZE = 3;
+
 export async function getPosts() {
-  const snapshop = await postsCollection.get();
+  const snapshop = await postsCollection
+    .orderBy('createdAt', 'desc')
+    .limit(PAGE_SIZE)
+    .get();
+
   const posts = snapshop.docs.map(doc => ({
     id: doc.id,
     ...doc.data(),
