@@ -9,7 +9,7 @@ import PostCard from '../components/PostCard';
 import usePosts from '../hooks/usePosts';
 
 function FeedScreen() {
-  const {posts, noMorePost, refreshing, onLoadMore, onRefresh, removePost} =
+  const { posts, noMorePost, refreshing, onLoadMore, onRefresh } =
     usePosts();
 
   return (
@@ -32,7 +32,7 @@ function FeedScreen() {
   );
 }
 
-const renderItem = ({item}) => (
+const renderItem = ({ item }) => (
   <PostCard
     createdAt={item.createdAt}
     description={item.description}
