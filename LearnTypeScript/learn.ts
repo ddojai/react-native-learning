@@ -37,14 +37,6 @@ function hello(value: string, returnNull?: boolean) {
   return `Hello ${value}`;
 }
 
-const result = hello('World');
-const nullResult = hello('World', true);
-
-if (result !== null) {
-  const replaced = result.replace('Hello', 'Bye');
-}
-const replaced = result?.replace('Hello', 'Bye');
-
 interface Profile {
   id: number;
   username: string;
@@ -136,17 +128,6 @@ const perimeter = rectangle.getPerimeter();
 const numbers: number[] = [1, 2, 3, 4, 5];
 const texts: string[] = ['hello', 'world'];
 
-type Person = {
-  name: string;
-};
-
-const person: Person = {
-  name: 'John Doe',
-};
-
-type People = Person[];
-const people: People = [{name: 'John Doe'}];
-
 type Employee = Person & {
   job: string;
 };
@@ -158,3 +139,15 @@ const employee: Employee = {
 
 type Color = 'red' | 'orange' | 'yellow';
 const color: Color = 'red';
+
+function wrap<T>(value: T) {
+  return {value};
+}
+
+interface Person {
+  name: string;
+}
+
+const person: Person = {name: 'John Doe'};
+const result = wrap(person);
+console.log(result.value.name); // 'John Doe'
