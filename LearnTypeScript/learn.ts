@@ -44,3 +44,38 @@ if (result !== null) {
   const replaced = result.replace('Hello', 'Bye');
 }
 const replaced = result?.replace('Hello', 'Bye');
+
+interface Profile {
+  id: number;
+  username: string;
+  displayName: string;
+}
+interface Relationship {
+  from: Profile;
+  to: Profile;
+}
+
+const relationship: Relationship = {
+  from: {
+    id: 1,
+    username: 'velopert',
+    displayName: 'Minjun Kim',
+  },
+  to: {
+    id: 2,
+    username: 'johndoe',
+    displayName: 'John Doe',
+  },
+};
+
+function printUsername(profile: Profile) {
+  console.log(profile.username);
+}
+
+const profile: Profile = {
+  id: 1,
+  username: 'velopert',
+  displayName: 'Minjun Kim',
+};
+
+printUsername(profile);
