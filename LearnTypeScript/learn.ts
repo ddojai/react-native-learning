@@ -29,3 +29,18 @@ function process(a: number, b: number, isDouble?: boolean) {
 
 const total = process(1, 2);
 const doubledTotal = process(1, 2, true);
+
+function hello(value: string, returnNull?: boolean) {
+  if (returnNull) {
+    return null;
+  }
+  return `Hello ${value}`;
+}
+
+const result = hello('World');
+const nullResult = hello('World', true);
+
+if (result !== null) {
+  const replaced = result.replace('Hello', 'Bye');
+}
+const replaced = result?.replace('Hello', 'Bye');
