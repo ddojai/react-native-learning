@@ -49,6 +49,7 @@ interface Profile {
   id: number;
   username: string;
   displayName: string;
+  photoURL?: string;
 }
 
 interface Account extends Profile {
@@ -90,6 +91,13 @@ const profile: Profile = {
   id: 1,
   username: 'velopert',
   displayName: 'Minjun Kim',
+};
+
+const profileWithPhoto: Profile = {
+  id: 1,
+  username: 'velopert',
+  displayName: 'Minjun Kim',
+  photoURL: 'photo.png',
 };
 
 printUsername(profile);
