@@ -136,8 +136,25 @@ const perimeter = rectangle.getPerimeter();
 const numbers: number[] = [1, 2, 3, 4, 5];
 const texts: string[] = ['hello', 'world'];
 
-interface Person {
+type Person = {
   name: string;
-}
+};
 
-const people: Person[] = [{name: 'John Doe'}, {name: 'Jane Doe'}];
+const person: Person = {
+  name: 'John Doe',
+};
+
+type People = Person[];
+const people: People = [{name: 'John Doe'}];
+
+type Employee = Person & {
+  job: string;
+};
+
+const employee: Employee = {
+  name: 'John Doe',
+  job: 'Programmer',
+};
+
+type Color = 'red' | 'orange' | 'yellow';
+const color: Color = 'red';
