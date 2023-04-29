@@ -132,3 +132,12 @@ const rectangle = new Rectangle(4, 6);
 
 const area = circle.getArea();
 const perimeter = rectangle.getPerimeter();
+
+const numbers: number[] = [1, 2, 3, 4, 5];
+const texts: string[] = ['hello', 'world'];
+
+interface Person {
+  name: string;
+}
+
+const people: Person[] = [{name: 'John Doe'}, {name: 'Jane Doe'}];
