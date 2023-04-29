@@ -21,3 +21,12 @@ let anyValue: any = null;
 anyValue = undefined;
 anyValue = 1;
 anyValue = 'hello world';
+
+function sum(a: number, b: number): number {
+  if (a === 0) {
+    return null;
+  }
+  return a + b;
+}
+
+const result = sum(1, 2);
