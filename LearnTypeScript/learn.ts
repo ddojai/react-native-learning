@@ -101,3 +101,34 @@ const profileWithPhoto: Profile = {
 };
 
 printUsername(profile);
+
+interface Shape {
+  getArea(): number;
+  getPerimeter(): number;
+}
+
+class Circle implements Shape {
+  constructor(private radius: number) {}
+  getArea(): number {
+    return Math.PI * Math.pow(this.radius, 2);
+  }
+  getPerimeter(): number {
+    return 2 * Math.PI * this.radius;
+  }
+}
+
+class Rectangle implements Shape {
+  constructor(private width: number, private height: number) {}
+  getArea(): number {
+    return this.width * this.height;
+  }
+  getPerimeter(): number {
+    return 2 * (this.width + this.height);
+  }
+}
+
+const circle = new Circle(4);
+const rectangle = new Rectangle(4, 6);
+
+const area = circle.getArea();
+const perimeter = rectangle.getPerimeter();
