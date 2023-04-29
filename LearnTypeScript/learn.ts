@@ -50,6 +50,20 @@ interface Profile {
   username: string;
   displayName: string;
 }
+
+interface Account extends Profile {
+  email: string;
+  password: string;
+}
+
+const account: Account = {
+  id: 1,
+  username: 'johndoe',
+  displayName: 'John Doe',
+  email: 'john@email.com',
+  password: '123123',
+};
+
 interface Relationship {
   from: Profile;
   to: Profile;
