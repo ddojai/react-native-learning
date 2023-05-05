@@ -1,13 +1,8 @@
 import React from 'react';
-import Profile from './Profile';
-import {Text} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 
 function App() {
-  return (
-    <Profile name="John Doe">
-      <Text>Hello World</Text>
-    </Profile>
-  );
+  return <NavigationContainer>{/* TODO: 화면 추가 */}</NavigationContainer>;
 }
 
 export default App;
