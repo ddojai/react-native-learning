@@ -3,7 +3,14 @@ import {Button, Text, View} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
 
-const Stack = createNativeStackNavigator();
+type RootStackParamList = {
+  Home: undefined;
+  Detail: {
+    id: number;
+  };
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function HomeScreen() {
   const navigation = useNavigation();
