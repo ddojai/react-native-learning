@@ -4,7 +4,7 @@ import {
   createNativeStackNavigator,
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, RouteProp, useRoute} from '@react-navigation/native';
 
 type RootStackParamList = {
   Home: undefined;
@@ -31,10 +31,13 @@ function HomeScreen() {
   );
 }
 
+type DetailScreenRouteProp = RouteProp<RootStackParamList, 'Detail'>;
+
 function DetailScreen() {
+  const {params} = useRoute<DetailScreenRouteProp>();
   return (
     <View>
-      <Text>Detail</Text>
+      <Text>Detail {params.id}</Text>
     </View>
   );
 }
