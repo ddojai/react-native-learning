@@ -151,3 +151,30 @@ interface Person {
 const person: Person = {name: 'John Doe'};
 const result = wrap(person);
 console.log(result.value.name); // 'John Doe'
+
+interface Item<T> {
+  id: number;
+  data: T;
+}
+
+interface Person {
+  name: string;
+}
+
+interface Place {
+  location: string;
+}
+
+const personItem: Item<Person> = {
+  id: 1,
+  data: {
+    name: 'John Doe',
+  },
+};
+
+const placeItem: Item<Place> = {
+  id: 2,
+  data: {
+    location: 'Korea',
+  },
+};
