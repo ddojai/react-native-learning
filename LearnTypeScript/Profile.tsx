@@ -1,10 +1,14 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-function Profile() {
+interface Props {
+  name: string;
+}
+
+function Profile({name}: Props) {
   return (
     <View>
-      <Text>Name</Text>
+      <Text>{name}</Text>
     </View>
   );
 }
