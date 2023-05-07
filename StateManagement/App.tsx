@@ -1,10 +1,10 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {legacy_createStore as createStore} from 'redux';
 import rootReducer from './slices';
 import TodoApp from './components/TodoApp';
+import {configureStore} from '@reduxjs/toolkit';
 
-const store = createStore(rootReducer);
+const store = configureStore({reducer: rootReducer});
 
 function App() {
   return (
