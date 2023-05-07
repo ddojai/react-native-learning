@@ -8,6 +8,8 @@ import {
   Text,
   Pressable,
 } from 'react-native';
+import useTodos from '../hooks/useTodos';
+import useTodosActions from '../hooks/useTodosActions';
 
 // 삭제와 등록 버튼으로 사용할 컴포넌트 입니다.
 function BlackButton({onPress, title}: {onPress(): void; title: string}) {
@@ -23,11 +25,12 @@ function BlackButton({onPress, title}: {onPress(): void; title: string}) {
 
 // 할일 항목의 정보를 보여줍니다.
 function TodoItem({id, text, done}: {id: number; text: string; done: boolean}) {
+  const {toggle, remove} = useTodosActions();
   const onToggle = () => {
-    console.log(`토글 ${id}`);
+    toggle(id);
   };
   const onRemove = () => {
-    console.log(`제거 ${id}`);
+    remove(id);
   };
 
   return (
@@ -42,10 +45,7 @@ function TodoItem({id, text, done}: {id: number; text: string; done: boolean}) {
 
 // FlatList로 여러 TodoItem 컴포넌트를 보여줍니다.
 function Todos() {
-  const todos = [
-    {id: 1, text: '리액트 네이티브 배우기', done: true},
-    {id: 2, text: '상태 관리 배우기', done: false},
-  ];
+  const todos = useTodos();
 
   return (
     <FlatList
@@ -64,9 +64,10 @@ function Todos() {
 // 할일 항목을 등록하는 컴포넌트입니다.
 function TodoInput() {
   const [text, setText] = useState('');
+  const {add} = useTodosActions();
 
   const onPress = () => {
-    console.log('등록');
+    add(text);
     setText('');
   };
 
