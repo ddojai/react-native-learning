@@ -1,10 +1,10 @@
 import React from 'react';
 import {SafeAreaView, View, Text, Button, StyleSheet} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {authorize, logout} from '../slices/auth';
+import useAuthActions from '../hooks/useAuthActions';
+import useUser from '../hooks/useUser';
 
 function AuthStatus() {
-  const user = useSelector(state => state.auth.user);
+  const user = useUser();
 
   return (
     <View style={styles.status}>
@@ -16,18 +16,16 @@ function AuthStatus() {
 }
 
 function AuthButtons() {
-  const dispatch = useDispatch();
+  const {authorize, logout} = useAuthActions();
   const onPressLogin = () => {
-    dispatch(
-      authorize({
-        id: 1,
-        username: 'johndoe',
-        displayName: 'John Doe',
-      }),
-    );
+    authorize({
+      id: 1,
+      username: 'johndoe',
+      displayName: 'John Doe',
+    }),
   };
   const onPressLogout = () => {
-    dispatch(logout());
+    logout();
   };
 
   return (
