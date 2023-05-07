@@ -22,7 +22,7 @@ function AuthButtons() {
       id: 1,
       username: 'johndoe',
       displayName: 'John Doe',
-    }),
+    });
   };
   const onPressLogout = () => {
     logout();
