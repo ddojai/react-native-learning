@@ -1,8 +1,22 @@
-'use strict';
+const { sanitizeEntity } = require("strapi-utils");
 
-/**
- * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
- * to customize this controller
- */
+module.exports = {
+  async create(ctx) {
+    // 사용자 id를 데이터에 추가
+    ctx.request.body.user = ctx.state.user.id;
+    const { articleId } = ctx.params;
+    ctx.request.body.article = articleId;
 
-module.exports = {};
+    // 게시글 존재 유무 확인
+    // id로 데이터 조회
+    const article = await strapi.services.article.findOne({ id: articleId });
+    if (!article) {
+      ctx.throw(404);
+    }
+
+    // Comment 데이터 생성
+    const entity = await strapi.services.comment.create(ctx.request.body);
+    // 응답 반환
+    return sanitizeEntity(entity, { model: strapi.models.comment });
+  },
+};
