@@ -4,6 +4,7 @@ import {AuthError} from '../api/types';
 import {useNavigation} from '@react-navigation/core';
 import {useUserState} from '../contexts/UserContext';
 import {RootStackNavigationProp} from '../screens/types';
+import {applyToken} from '../api/client';
 
 export default function useRegister() {
   const [, setUser] = useUserState();
@@ -12,6 +13,7 @@ export default function useRegister() {
     onSuccess: data => {
       setUser(data.user);
       navigation.pop();
+      applyToken(data.jwt);
       /* TODO: 인증 토큰 적용 예정 */
     },
     onError: (error: AuthError) => {
