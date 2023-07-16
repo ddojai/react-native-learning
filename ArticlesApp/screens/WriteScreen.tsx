@@ -1,5 +1,5 @@
-import {useNavigation} from '@react-navigation/core';
-import React, {useCallback, useEffect, useState} from 'react';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/core';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
@@ -8,17 +8,28 @@ import {
   TextInput,
 } from 'react-native';
 import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
-import {RootStackNavigationProp} from './types';
+import {RootStackNavigationProp, RootStackParamList} from './types';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {InfiniteData, useMutation, useQueryClient} from 'react-query';
-import {writeArticle} from '../api/articles';
+import {modifyArticle, writeArticle} from '../api/articles';
 import {Article} from '../api/types';
 
+type WriteScreenRouteProp = RouteProp<RootStackParamList, 'Write'>;
+
 function WriteScreen() {
-  const {top} = useSafeAreaInsets();
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  const {params} = useRoute<WriteScreenRouteProp>();
   const queryClient = useQueryClient();
+  // params.id가 존재한다면 queryClient를 통해 캐시 조회
+  const cachedArticle = useMemo(
+    () =>
+      params.articleId
+        ? queryClient.getQueryData<Article>(['article', params.articleId])
+        : null,
+    [queryClient, params.articleId],
+  );
+  const {top} = useSafeAreaInsets();
+  const [title, setTitle] = useState(cachedArticle?.title ?? '');
+  const [body, setBody] = useState(cachedArticle?.body ?? '');
   const {mutate: write} = useMutation(writeArticle, {
     onSuccess: article => {
       queryClient.setQueryData<InfiniteData<Article[]>>('articles', data => {
@@ -39,10 +50,40 @@ function WriteScreen() {
     },
   });
 
+  const {mutate: modify} = useMutation(modifyArticle, {
+    onSuccess: article => {
+      // 게시글 목록 수정
+      queryClient.setQueryData<InfiniteData<Article[]>>('articles', data => {
+        // data의 타입이 undefined가 아님을 명시하기 위하여 추가한 코드.
+        // modify의 경우엔 data가 무조건 유효하기 때문에 실제로 실행 될 일 없음.
+        if (!data) {
+          return {pageParams: [], pages: []};
+        }
+
+        return {
+          pageParams: data!.pageParams,
+          pages: data!.pages.map(page =>
+            // 우리가 수정할 항목이  있는 페이지를 찾고
+            page.find(a => a.id === params.articleId)
+              ? page.map(a => (a.id === params.articleId ? article : a)) // 해당 페이지에서 id가 일치하는 항목을 교체
+              : page,
+          ),
+        };
+      });
+      // 게시글 수정
+      queryClient.setQueryData(['article', params.articleId], article);
+      navigation.goBack();
+    },
+  });
+
   const navigation = useNavigation<RootStackNavigationProp>();
   const onSubmit = useCallback(() => {
-    write({title, body});
-  }, [write, title, body]);
+    if (params.articleId) {
+      modify({id: params.articleId, title, body});
+    } else {
+      write({title, body});
+    }
+  }, [write, modify, title, body, params.articleId]);
 
   useEffect(() => {
     navigation.setOptions({
