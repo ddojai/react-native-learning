@@ -71,7 +71,6 @@ function ArticleActionButtons({articleId}: ArticleActionButtonsProps) {
         message="게시글을 삭제하시겠습니까?"
         isDestructive
         confirmText="삭제"
-        cancelText="취소"
         onConfirm={onConfirmRemove}
         onClose={onCancelRemove}
       />

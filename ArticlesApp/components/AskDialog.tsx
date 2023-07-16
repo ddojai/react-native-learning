@@ -6,7 +6,7 @@ export interface AskDialogProps {
   title: string;
   message: string;
   confirmText: string;
-  cancelText: string;
+  cancelText?: string;
   isDestructive: boolean;
   onClose(): void;
   onConfirm(): void;
