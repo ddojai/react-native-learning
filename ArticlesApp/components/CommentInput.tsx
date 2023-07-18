@@ -11,11 +11,12 @@ export interface CommentInputProps {
 
 function CommentInput({articleId}: CommentInputProps) {
   const [writingComment, setWritingComment] = useState(false);
+
   const queryClient = useQueryClient();
   const {mutate} = useMutation(writeComment, {
     onSuccess: comment => {
-      queryClient.setQueryData<Comment[]>(['comments', articleId], comment =>
-        (comment || []).concat(comment),
+      queryClient.setQueryData<Comment[]>(['comments', articleId], comments =>
+        (comments || []).concat(comment),
       );
     },
   });
@@ -33,10 +34,11 @@ function CommentInput({articleId}: CommentInputProps) {
       message,
     });
   };
+
   return (
     <>
       <Pressable style={styles.block} onPress={onPress}>
-        <Text style={styles.text}>댓글을 입력하세요.</Text>
+        <Text style={styles.text}>댓글을 입력하세요</Text>
       </Pressable>
       <CommentModal
         onClose={onClose}
